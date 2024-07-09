@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
-pip install matplotlib
+
 
 # Introducción al tema
 st.title("Circunferencia de un Círculo")
