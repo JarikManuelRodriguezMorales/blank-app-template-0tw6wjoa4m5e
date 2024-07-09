@@ -62,7 +62,7 @@ ax.text(0.05, 0.95, f"Puntos ingresados: ({x}, {y})", transform=ax.transAxes, ha
 
 st.pyplot(fig)
 
-# Verificar si el punto está en la circunferencia
+
 distance = np.sqrt((x-a)**2 + (y-b)**2)
 if np.isclose(distance, r):
     st.write("El punto (x, y) se encuentra en la circunferencia!")
