@@ -24,21 +24,36 @@ st.write("Sustituyendo la fórmula de la distancia en la ecuación anterior, obt
 st.latex(r"(x-h)^2 + (y-k)^2 = r^2")
 
 # Componente interactivo
-st.write("Ingrese los valores del centro del círculo (h, k) y el radio (r):")
+st.write("Ingrese las coordenadas del centro del círculo (h, k) y el radio (r):")
 h = st.slider("h", -10, 10, 0)
 k = st.slider("k", -10, 10, 0)
 r = st.slider("r", 0, 10, 5)
 
+st.write("Ingrese las coordenadas x y y de un punto en la circunferencia:")
+x = st.number_input("x", value=0)
+y = st.number_input("y", value=0)
+
 # Graficar el círculo
 fig, ax = plt.subplots()
 theta = np.linspace(0, 2*np.pi, 100)
-x = h + r * np.cos(theta)
-y = k + r * np.sin(theta)
-ax.plot(x, y)
+x_circle = h + r * np.cos(theta)
+y_circle = k + r * np.sin(theta)
+ax.plot(x_circle, y_circle)
 ax.set_xlim(h-10, h+10)
 ax.set_ylim(k-10, k+10)
 ax.set_aspect('equal')
+
+# Graficar el punto en la circunferencia
+ax.plot(x, y, 'ro')
+
 st.pyplot(fig)
+
+# Verificar si el punto está en la circunferencia
+distance = np.sqrt((x-h)**2 + (y-k)**2)
+if np.isclose(distance, r):
+    st.write("El punto (x, y) se encuentra en la circunferencia!")
+else:
+    st.write("El punto (x, y) no se encuentra en la circunferencia.")
 
 # Desplegar la app online
 # Puedes desplegar la app en GitHub Pages o otras plataformas que soporten apps de Streamlit.
