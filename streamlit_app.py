@@ -34,17 +34,22 @@ x = st.number_input("x", value=0)
 y = st.number_input("y", value=0)
 
 # Graficar el círculo
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(8, 8))
 theta = np.linspace(0, 2*np.pi, 100)
 x_circle = h + r * np.cos(theta)
 y_circle = k + r * np.sin(theta)
-ax.plot(x_circle, y_circle)
+ax.plot(x_circle, y_circle, 'b-', lw=2)
 ax.set_xlim(h-10, h+10)
 ax.set_ylim(k-10, k+10)
 ax.set_aspect('equal')
 
 # Graficar el punto en la circunferencia
-ax.plot(x, y, 'ro')
+ax.plot(x, y, 'ro', markersize=10)
+
+
+ax.set_title("Circunferencia")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
 
 st.pyplot(fig)
 
@@ -55,5 +60,3 @@ if np.isclose(distance, r):
 else:
     st.write("El punto (x, y) no se encuentra en la circunferencia.")
 
-# Desplegar la app online
-# Puedes desplegar la app en GitHub Pages o otras plataformas que soporten apps de Streamlit.
