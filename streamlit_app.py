@@ -25,9 +25,9 @@ st.latex(r"(x-h)^2 + (y-k)^2 = r^2")
 
 # Componente interactivo
 st.write("Ingrese las coordenadas del centro del círculo (h, k) y el radio (r):")
-h = st.slider("h", -10, 10, 0)
-k = st.slider("k", -10, 10, 0)
-r = st.slider("r", 0, 10, 5)
+h = st.number_input("h", value=0)
+k = st.number_input("k", value=0)
+r = st.number_input("r", value=5)
 
 st.write("Ingrese las coordenadas x y y de un punto en la circunferencia:")
 x = st.number_input("x", value=0)
@@ -43,13 +43,21 @@ ax.set_xlim(h-10, h+10)
 ax.set_ylim(k-10, k+10)
 ax.set_aspect('equal')
 
+# Agregar cuadricula
+ax.grid(True, linestyle='--', alpha=0.5)
+
+# Agregar ejes X y Y
+ax.set_xlabel("Eje X")
+ax.set_ylabel("Eje Y")
+
 # Graficar el punto en la circunferencia
 ax.plot(x, y, 'ro', markersize=10)
 
-
+# Agregar título
 ax.set_title("Circunferencia")
-ax.set_xlabel("x")
-ax.set_ylabel("y")
+
+# Mostrar los puntos ingresados en una esquina
+ax.text(0.05, 0.95, f"Puntos ingresados: ({x}, {y})", transform=ax.transAxes, ha='left', va='top')
 
 st.pyplot(fig)
 
@@ -59,4 +67,7 @@ if np.isclose(distance, r):
     st.write("El punto (x, y) se encuentra en la circunferencia!")
 else:
     st.write("El punto (x, y) no se encuentra en la circunferencia.")
+
+# Desplegar la app online
+# Puedes desplegar la app en GitHub Pages o otras plataformas que soporten apps de Streamlit.
 
