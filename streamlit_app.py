@@ -3,13 +3,25 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Introducción al tema
-st.title("Circunferencia de un Círculo")
-st.write("La circunferencia de un círculo es la distancia alrededor del círculo. Es un concepto fundamental en matemáticas y se utiliza en muchas aplicaciones del mundo real.")
+st.title("La Ecuación de la Circunferencia")
+st.write("La ecuación de la circunferencia es una de las ecuaciones más importantes en matemáticas, y se utiliza para describir la forma de un círculo en un plano cartesiano.")
 
-# Fundamentación matemática
-st.write("La ecuación de la circunferencia de un círculo es:")
+# Explicación de la ecuación
+st.write("La ecuación de la circunferencia se puede escribir como:")
 st.latex(r"(x-h)^2 + (y-k)^2 = r^2")
-st.write("Donde (h, k) es el centro del círculo y r es el radio del círculo.")
+st.write("Donde:")
+st.write("* (h, k) es el centro del círculo")
+st.write("* r es el radio del círculo")
+st.write("* x e y son las coordenadas de un punto en el plano cartesiano")
+
+# Desarrollo de la ecuación
+st.write("Para entender cómo se desarrolla la ecuación, podemos empezar por considerar un punto (x, y) en el plano cartesiano.")
+st.write("La distancia entre el punto (x, y) y el centro del círculo (h, k) se puede calcular utilizando la fórmula de la distancia entre dos puntos:")
+st.latex(r"d = \sqrt{(x-h)^2 + (y-k)^2}")
+st.write("Si el punto (x, y) se encuentra en la circunferencia, entonces la distancia entre el punto y el centro del círculo es igual al radio del círculo:")
+st.latex(r"d = r")
+st.write("Sustituyendo la fórmula de la distancia en la ecuación anterior, obtenemos la ecuación de la circunferencia:")
+st.latex(r"(x-h)^2 + (y-k)^2 = r^2")
 
 # Componente interactivo
 st.write("Ingrese los valores del centro del círculo (h, k) y el radio (r):")
@@ -30,4 +42,3 @@ st.pyplot(fig)
 
 # Desplegar la app online
 # Puedes desplegar la app en GitHub Pages o otras plataformas que soporten apps de Streamlit.
-
