@@ -2,34 +2,32 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Introduction to the topic
-st.title("Circumference of a Circle")
-st.write("The circumference of a circle is the distance around the circle. It is a fundamental concept in mathematics and is used in many real-world applications.")
+# Introducción al tema
+st.title("Circunferencia de un Círculo")
+st.write("La circunferencia de un círculo es la distancia alrededor del círculo. Es un concepto fundamental en matemáticas y se utiliza en muchas aplicaciones del mundo real.")
 
-# Mathematical foundation
-st.write("The formula to calculate the circumference of a circle is:")
+# Fundamentación matemática
+st.write("La fórmula para calcular la circunferencia de un círculo es:")
 st.latex(r"C = 2 \pi r")
-st.write("Where C is the circumference, π is a mathematical constant approximately equal to 3.14, and r is the radius of the circle.")
+st.write("Donde C es la circunferencia, π es una constante matemática aproximadamente igual a 3.14, y r es el radio del círculo.")
 
-# Interactive component
-st.write("Enter the radius of the circle:")
-radius = st.slider("Radius", 0.0, 10.0, 1.0)
+# Componente interactivo
+st.write("Ingrese el radio del círculo:")
+radio = st.slider("Radio", 0.0, 10.0, 1.0)
 
-# Calculate the circumference
-circumference = 2 * np.pi * radius
+# Calcular la circunferencia
+circunferencia = 2 * np.pi * radio
 
-# Display the result
-st.write("The circumference of the circle is:")
-st.write(circumference)
+# Mostrar el resultado
+st.write("La circunferencia del círculo es:")
+st.write(circunferencia)
 
-# Plot the circle
+# Graficar el círculo
 fig, ax = plt.subplots()
-circle = plt.Circle((0, 0), radius, fill=False)
-ax.add_artist(circle)
+circulo = plt.Circle((0, 0), radio, fill=False)
+ax.add_artist(circulo)
 ax.set_xlim(-10, 10)
 ax.set_ylim(-10, 10)
 ax.set_aspect('equal')
 st.pyplot(fig)
 
-# Deploy the app online
-# You can deploy the app on GitHub Pages or other platforms that support Streamlit apps.
