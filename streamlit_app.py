@@ -43,12 +43,12 @@ ax.set_xlim(-10, 10)
 ax.set_ylim(-10, 10)
 ax.set_aspect('equal')
 
-# Agregar cuadricula con escala de 1 en 1
+# Agregar cuadricula 
 ax.grid(True, linestyle='--', alpha=0.5)
 ax.set_xticks(np.arange(-10, 11, 1))
 ax.set_yticks(np.arange(-10, 11, 1))
 
-# Agregar ejes X y Y con líneas rectas que pasan por el punto (0,0)
+# Agregar ejes X y Y 
 ax.axhline(0, color='k', lw=1)
 ax.axvline(0, color='k', lw=1)
 ax.set_xlabel("Eje X")
@@ -57,7 +57,7 @@ ax.set_ylabel("Eje Y")
 # Graficar el punto en la circunferencia
 ax.plot(x, y, 'ro', markersize=10)
 
-# Mostrar los puntos ingresados en una esquina
+# Mostrar los puntos ingresados
 ax.text(0.05, 0.95, f"Puntos ingresados: ({x}, {y})", transform=ax.transAxes, ha='left', va='top')
 
 st.pyplot(fig)
