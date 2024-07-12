@@ -9,11 +9,11 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
    theme={
-        "primaryColor": "#6eb52f",
-        "backgroundColor": "#f0f0f5",
-        "secondaryBackgroundColor": "#e0e0ef",
-        "textColor": "#262730",
-        "font": "sans serif"
+        primaryColor": #6eb52f,
+        backgroundColor": #f0f0f5,
+        secondaryBackgroundColor: #e0e0ef,
+        textColor: #262730,
+        font: sans serif,
     }
 )
 
