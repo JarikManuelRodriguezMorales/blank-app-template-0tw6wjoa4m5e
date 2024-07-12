@@ -1,57 +1,55 @@
 import streamlit as st
 import matplotlib.pyplot as plt
-import numpy as np
 
-# Configuración del tema
-st.set_page_config(
-    page_title="Circunferencia",
-    page_icon=":circumference:",
-    layout="wide",
-    initial_sidebar_state="expanded",
-   theme={
-        primaryColor #6eb52f,
-        backgroundColor #f0f0f5,
-        secondaryBackgroundColor #e0e0ef,
-        textColor #262730,
-        font sans serif,
-    }
-)
+# Título y explicación
+st.title("Ecuación de la circunferencia en el plano cartesiano")
+st.write("En esta aplicación, podrás ingresar las coordenadas del centro `(a, b)` y el radio `r` de la ecuación `(x-a)² + (y-b)² = r²` y ver su gráfica correspondiente.")
 
-# Introducción
-st.title("Circunferencia")
-st.write("Bienvenido a la aplicación de circunferencia!")
+# Entrada de datos
+a = st.number_input("Ingresa la coordenada x del centro (a):", value=0.0, step=1.0)
+b = st.number_input("Ingresa la coordenada y del centro (b):", value=0.0, step=1.0)
+r = st.number_input("Ingresa el radio (r):", value=1.0, step=1.0)
 
-# Ecuación y fundamentación matemática
-st.header("Ecuación y fundamentación matemática")
-st.write("La ecuación de la circunferencia es:")
-st.latex(r"((x-h)^2 + (y-k)^2 = r^2)")
-st.write("Donde (h, k) es el centro de la circunferencia y r es el radio.")
+# Explicación de la ecuación
+st.write("La ecuación de la circunferencia en el plano cartesiano es:")
+st.latex(r"(x - a)^2 + (y - b)^2 = r^2")
+st.write("Donde:")
+st.write("* `(x, y)` son las coordenadas de un punto en la circunferencia.")
+st.write("* `(a, b)` son las coordenadas del centro de la circunferencia.")
+st.write("* `r` es el radio de la circunferencia.")
 
-# Componente interactivo para el usuario
-st.header("Ingrese las coordenadas x e y de la circunferencia")
-x = st.number_input("Ingrese x:", value=0)
-y = st.number_input("Ingrese y:", value=0)
-r = st.number_input("Ingrese el radio:", value=1)
-
-# Gráfica con cuadricula
-st.header("Gráfica de la circunferencia")
+# Gráfica interactiva
 fig, ax = plt.subplots()
-ax.set_aspect("equal")
+ax.grid(True, linestyle='--', color='gray', linewidth=0.5)
 ax.set_xlabel("Eje X")
 ax.set_ylabel("Eje Y")
-ax.grid(True)
-ax.plot(x, y, "ro")
-circle = plt.Circle((x, y), r, fill=False)
-ax.add_artist(circle)
-st.pyplot(fig)
+ax.set_title("Gráfica de la circunferencia")
+ax.plot([0, a], [0, b], color='red', linewidth=1.5, label="Centro")
+ax.plot([a], [0], marker='o', color='red', markersize=5)
+ax.plot([0], [b], marker='o', color='red', markersize=5)
+ax.plot(a + r, b, marker='o', color='green', markersize=5, label="Punto en la circunferencia")
+ax.plot(a - r, b, marker='o', color='green', markersize=5)
+ax.legend()
 
-# Explicación del funcionamiento del código
-st.header("Explicación del funcionamiento del código")
-st.write("Este código utiliza la biblioteca Streamlit para crear una aplicación interactiva que permite al usuario ingresar las coordenadas x e y de la circunferencia y el radio. Luego, utiliza la biblioteca Matplotlib para generar una gráfica de la circunferencia con cuadricula.")
-st.write("La ecuación de la circunferencia se utiliza para calcular los puntos de la circunferencia y se grafican utilizando la función `plot` de Matplotlib.")
-st.write("La aplicación también incluye un componente interactivo que permite al usuario ingresar los valores de x, y y r utilizando cajas de entrada.")
+# Generación de gráfica
+if st.button("Generar gráfica"):
+    plt.figure(figsize=(6, 6))
+    plt.plot([a + r, a - r], [b, b], color='green', linewidth=1.5, label="Circunferencia")
+    plt.plot([0, a], [0, b], color='red', linewidth=1.5, label="Centro")
+    plt.plot([a], [0], marker='o', color='red', markersize=5)
+    plt.plot([0], [b], marker='o', color='red', markersize=5)
+    plt.plot(a + r, b, marker='o', color='green', markersize=5, label="Punto en la circunferencia")
+    plt.plot(a - r, b, marker='o', color='green', markersize=5)
+    plt.xlim(-r, r)
+    plt.ylim(-r, r)
+    plt.grid(True, linestyle='--', color='gray', linewidth=0.5)
+    plt.xlabel("Eje X")
+    plt.ylabel("Eje Y")
+    plt.title("Gráfica de la circunferencia")
+    plt.legend()
+    st.pyplot(plt)
 
-# Despliegue online
-st.write("Puedes desplegar esta aplicación online utilizando Streamlit Sharing.")
+# Footer
+st.write("Desarrollado con ❤️ por [Tu nombre]")
 
 
