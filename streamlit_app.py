@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
    theme={
         primaryColor: #6eb52f,
-        backgroundColor": #f0f0f5,
+        backgroundColor: #f0f0f5,
         secondaryBackgroundColor: #e0e0ef,
         textColor: #262730,
         font: sans serif,
